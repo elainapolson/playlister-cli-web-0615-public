@@ -1,4 +1,4 @@
-module Findable
+module Createable
   module InstanceMethods
   end
 
