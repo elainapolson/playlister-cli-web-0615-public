@@ -1,6 +1,11 @@
 class Artist
 
+  extend Createable::ClassMethods
+  extend Findable::ClassMethods
+  extend Memorable::ClassMethods
+
   attr_accessor :name, :song, :songs, :genres
+
 
   @@all = []
   
@@ -34,19 +39,7 @@ class Artist
   end
 
   def add_songs(songs)
-    songs.each do |song|
-      self.add_song(song)
-    end
-  end
-
-  def self.find_by_name(name)
-    @@all.find do |element|
-      element.name == name 
-    end
-  end
-
-  def self.create_by_name(name)
-    self.new.tap{|artist| artist.name = name}
+    songs.each {|song| self.add_song(song)}
   end
 
 

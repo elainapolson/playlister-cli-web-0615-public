@@ -1,5 +1,9 @@
 class Genre
   
+  extend Findable::ClassMethods
+  extend Createable::ClassMethods
+  extend Memorable::ClassMethods
+
   attr_accessor :name, :songs, :artists, :artist 
 
   @@genres = []
@@ -20,16 +24,6 @@ class Genre
 
   def self.reset_all
     self.all.clear
-  end
-
-  def self.find_by_name(name)
-    @@genres.find do |element|
-      element.name == name 
-    end
-  end
-
-  def self.create_by_name(name)
-    self.new.tap{|song| song.name = name}
   end
 
 end
